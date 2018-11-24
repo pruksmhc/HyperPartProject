@@ -97,9 +97,9 @@ training_labels_df.to_hdf('training_labels_pck.h5', key = 'training_labels_df', 
 validation_labels_df.to_hdf('val_labels_pck.h5', key = 'validation_labels_df', mode = 'w')
 
 pd.DataFrame(tr_unreadable_data).to_hdf('err_training_data_pck.h5', key = 'tr_unreadable_data', mode = 'w')
-pd.DataFrame(val_unreadable_data).to_hdf('err_val_labels_data.pickle', key = 'val_unreadable_data', mode = 'w')
-pd.DataFrame(tr_unreadable_labels).to_hdf('err_training_labels_pck.pickle', key = 'tr_unreadable_labels', mode = 'w')
-pd.DataFrame(val_unreadable_labels).to_hdf('err_val_labels_pck.pickle', key = 'val_unreadable_labels', mode = 'w')
+pd.DataFrame(val_unreadable_data).to_hdf('err_val_labels_data.h5', key = 'val_unreadable_data', mode = 'w')
+pd.DataFrame(tr_unreadable_labels).to_hdf('err_training_labels_pck.h5', key = 'tr_unreadable_labels', mode = 'w')
+pd.DataFrame(val_unreadable_labels).to_hdf('err_val_labels_pck.h5', key = 'val_unreadable_labels', mode = 'w')
 
 print ("Finished writing dataframes to memory at " + str(datetime.datetime.now()))
 
