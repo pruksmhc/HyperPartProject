@@ -1,4 +1,4 @@
-# Hyperpartisan news detection- preprocessing script
+# Hyperpartisan news detection- data loading script
 # Author: Yash Deshpande
 # Last modified: November 23rd, 2018
 
