@@ -109,4 +109,4 @@ pd.DataFrame(val_unreadable_labels).to_csv('err_val_labels_pck.csv', sep = '|', 
 
 print ("Finished writing dataframes to memory at " + str(datetime.datetime.now()))
 
-print ("Script completed at " + str(datetime.datetime.now()))                                                                                          
+print("Script completed at " + str(datetime.datetime.now()))                                                                                          
