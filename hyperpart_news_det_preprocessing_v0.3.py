@@ -55,4 +55,4 @@ full_training_data_labels_2.to_csv("processed_training_data_02.csv", sep = '|', 
 
 print("Finished merging with labels and unloading clean data. Completed at " +str(datetime.datetime.now()))
 
-print("Pre-processing script completed at " + str(datetime.datetime.now()))
+print ("Pre-processing script completed at " + str(datetime.datetime.now()))
