@@ -1,6 +1,7 @@
 import numpy as np
 import torch
 from torch.utils.data import Dataset
+MAX_SENTENCE_LENGTH = 19650
 
 class HyperPartGroupDataset(Dataset):
     """
@@ -30,7 +31,7 @@ class HyperPartGroupDataset(Dataset):
         label = self.target_list[key]
         return [token_idx, len(token_idx), label]
 
-def moviegroup_collate_func(batch):
+def hype_collate_func(batch):
     """
     Customized function for DataLoader that dynamically pads the batch so that all 
     data have the same length

@@ -36,12 +36,12 @@ class HyperSearch(nn.Module):
 	        correct += predicted.eq(labels.view_as(predicted)).sum().item()
 	    return (100 * correct / total)
 
-	def save_model(self, model, val_accs, train_accs, RNN_or_CNN, param_name, param_val, title):
+	def save_model(self, model, val_accs, train_accs, title):
 		pdb.set_trace()
 		val_accs = np.array(val_accs)
 		max_val = val_accs.max()
 		train_accs = np.array(train_accs)
-		link = self.dirlink + "/"+RNN_or_CNN +"/"+ param_name+"/" + str(param_val)+"/"
+		link = self.dirlink + ""
 		torch.save(model.state_dict(), link + "model_states")
 		pickle.dump(val_accs, open(link + "val_accuracies", "wb"))
 		pickle.dump(train_accs, open(link + "train_accuracies", "wb"))
@@ -63,7 +63,6 @@ class HyperSearch(nn.Module):
 		plt.xticks(np.arange(num_epochs + 1))
 		fig.savefig(link+"graph.png")
 		# What if I actually do the graphing here, then it would output the graphs here. 
-
 
 	def search_parameters(self,param_name, CNN_or_RNN, param_values, other_values, train_loader, val_loader, template_title):
 		"""
