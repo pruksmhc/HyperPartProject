@@ -77,7 +77,6 @@ def test_model_routine(train_loader, val_loader, model, criterion, optimizer, nu
         acc_per_epoch_val = []
         acc = []
         for i, (data, lengths, labels) in enumerate(train_loader):
-            print(i)
             model.train()
             data_batch, length_batch, label_batch = data, lengths, labels
             optimizer.zero_grad()
@@ -86,7 +85,7 @@ def test_model_routine(train_loader, val_loader, model, criterion, optimizer, nu
             loss.backward(retain_graph=True)
             optimizer.step()
             # validate every 100 iterations
-            if i > 0 and i % 100 == 0:
+            if i > 0 and i % 10 == 0:
                 # validate
                 val_acc = test_model(val_loader, model) 
                 train_acc = test_model(train_loader, model)
@@ -149,10 +148,6 @@ val_data_indices = pickle.load(open('data/val_data_indexed', "rb"))
 train_labels = pd.read_pickle('data/train_labels').tolist()
 val_labels = pd.read_pickle('data/val_labels').tolist()
 
-train_data_indices = train_data_indices[:200]
-val_data_indices  = val_data_indices[:100]
-train_labels = train_labels[:200]
-val_labels = val_labels[:100]
 
 convert_to_binary = {True: 1, False: 0}
 train_labeldf = [convert_to_binary[x] for x in train_labels]
