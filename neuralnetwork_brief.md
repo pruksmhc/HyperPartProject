@@ -14,7 +14,35 @@ After using basic models such as Logistic Regression and SVM(support vector mach
 
 - In the neural network architecture, after the embedding layer (which transforms each index into a d-dimensional vector), the word vectors for the input sequence are summed up to get a 1xd dimensional vector.A a linear layer is used to convert the output to dimension 2. After softmax, the two numbers corresponding to the probabilities of belonging to each class (hyperpartisan or not). 
 
-- CrossEntropyLoss is used, and Adam is used as the optimizer due to research papers which show that Adam has been shown to converge. Other hyper-parameters like hidden size are tuned afterwards using the validation dataset. 
+- CrossEntropyLoss is used, and Adam is used as the optimizer due to research papers which show that Adam has been shown to converge. Other hyper-parameters like hidden size are tuned afterwards using the validation dataset as a marker. 
 
 
-- 
+Ablation study:
+	We tuned for several hyperparameters - word embedding size and learning rate. Our default parameters were 0.001 learning rate and 300 embedding size. 
+	For our embedding size, we decided to try an embedding size of 200 and 300, and for learning rate 0.01 and 3e-4, which has been shown to perform well for Adam optimization. 
+
+Test scores (Scores of testing on the test set)
+Embedding size   
+200 - 60.3
+300 - 70.5
+
+Learning rate: 
+0.001 - 73.2
+0.0003 - 64.3
+
+We were able to achieve a maximum of 73.2% accuracy (NLLLoss) using neural network. 
+We can see that the test scores were worse for neural network after testing on the test data, which is made up of articles from different publications, although not as drastic of a decrease in comparison to Naive Bayes and SVM. In terms of parameters, embedding size significantly increased performance. This is due to our intial model, which decreases the size of the __ based on the
+
+Meanwhile, higher learning rate led to higher performance. However, as seen in the graphs above, training with higher learning rate led to higher instability during training, as the optimizer first overshot the minimum in the loss function manifold (as shown by the drastic increase and decrease in validation set preformance in the first epoch).
+
+Further work: 
+
+-Train on more embeddings izes 
+-Try linear annealing for learning rate 
+-Try more than 1 n-gram. 
+
+
+
+
+
+
