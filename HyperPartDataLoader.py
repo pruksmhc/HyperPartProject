@@ -51,24 +51,3 @@ def hype_collate_func(batch):
                                 mode="constant", constant_values=0)
         data_list.append(padded_vec)
     return [torch.from_numpy(np.array(data_list)), torch.LongTensor(length_list), torch.LongTensor(label_list)]
-
-"""
-BATCH_SIZE = 32
-train_dataset = MovieGroupDataset(train_data_indices, train_labeldf)
-train_loader = torch.utils.data.DataLoader(dataset=train_dataset, 
-                                           batch_size=BATCH_SIZE,
-                                           collate_fn=moviegroup_collate_func,
-                                           shuffle=True)
-
-val_dataset = MovieGroupDataset(val_data_indices, val_labels)
-val_loader = torch.utils.data.DataLoader(dataset=val_dataset, 
-                                           batch_size=BATCH_SIZE,
-                                           collate_fn=moviegroup_collate_func,
-                                           shuffle=True)
-
-test_dataset = MovieGroupDataset(test_data_indices, test_labels)
-test_loader = torch.utils.data.DataLoader(dataset=test_dataset, 
-                                           batch_size=BATCH_SIZE,
-                                           collate_fn=moviegroup_collate_func,
-                                           shuffle=False)
-"""
